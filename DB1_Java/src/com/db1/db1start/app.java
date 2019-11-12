@@ -18,12 +18,15 @@ public class app {
 		return "Texto Minusculo: " + texto_minusculo;
 	}
 	
-	public static String menorValor(double valor1, double valor2, double valor3) {
-		if (valor1 < valor2 && valor1 < valor3) {
-			return ("valor 1 é o menor");
-		}else if (valor2 < valor3 && valor2 < valor1) {
-			return ("valor 2 é o menor");
-		}else return ("valor 3 é o menor");
+	public static double menorValor(double valor1, double valor2) {
+		if (valor1 < valor2) {
+			return valor1;
+		}
+			return valor2;
+	}
+	
+	public static double menorValor(double valor1, double valor2, double valor3) {
+		return menorValor(menorValor(valor1,valor2),valor3);
 	}
 	
 
@@ -61,7 +64,7 @@ public class app {
 		Scanner scan_valor3 = new Scanner(System.in);
 		double valor3 = scan_valor3.nextInt();
 		
-		System.out.println(menorValor(valor1,valor2,valor3));
+		System.out.println("O menor valor é o: " + menorValor(valor1,valor2,valor3));
 	}
 
 }
