@@ -18,7 +18,7 @@ public class app {
 		return "Texto Minusculo: " + texto_minusculo;
 	}
 	
-	public static String menor_valor(double valor1, double valor2, double valor3) {
+	public static String menorValor(double valor1, double valor2, double valor3) {
 		if (valor1 < valor2 && valor1 < valor3) {
 			return ("valor 1 é o menor");
 		}else if (valor2 < valor3 && valor2 < valor1) {
@@ -31,11 +31,7 @@ public class app {
 		// TODO Auto-generated method stub
 		Integer numero1, numero2;
 		String texto_normal;
-		String resultado;
-		String texto_maiusculo;
-		String texto_minusculo;
-		String resultado_menor_valor;
-	
+		
 		System.out.println("Digite um numero");
 		Scanner scan_numero1 = new Scanner(System.in);
 		numero1 = scan_numero1.nextInt();
@@ -44,18 +40,14 @@ public class app {
 		Scanner scan_numero2 = new Scanner(System.in);
 		numero2 = scan_numero2.nextInt();
 		
-		resultado = soma(numero1,numero2);
-		System.out.println(resultado);
+		System.out.println(soma(numero1,numero2));
 		
 		System.out.println("Digite um texto");
 		Scanner scan_texto = new Scanner(System.in);
 		texto_normal = scan_texto.next();
-		
-		texto_maiusculo = maiuscula(texto_normal);
-		texto_minusculo = minuscula(texto_normal);
-		
-		System.out.println(texto_maiusculo);
-		System.out.println(texto_minusculo);
+	
+		System.out.println( maiuscula(texto_normal));
+		System.out.println(minuscula(texto_normal));
 		
 		System.out.println("Digite o valor 1");
 		Scanner scan_valor1 = new Scanner(System.in);
@@ -69,8 +61,7 @@ public class app {
 		Scanner scan_valor3 = new Scanner(System.in);
 		double valor3 = scan_valor3.nextInt();
 		
-		resultado_menor_valor=menor_valor(valor1,valor2,valor3);
-		System.out.println(resultado_menor_valor);
+		System.out.println(menorValor(valor1,valor2,valor3));
 	}
 
 }
