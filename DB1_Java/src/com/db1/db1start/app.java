@@ -1,7 +1,7 @@
 package com.db1.db1start;
 import java.util.Scanner;
 
-public class app {
+public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
