@@ -1,4 +1,4 @@
-package com.db1.db1start;
+package com.db1.algoritimoscomjava;
 
 import org.junit.Test;
 

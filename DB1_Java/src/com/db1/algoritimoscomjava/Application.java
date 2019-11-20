@@ -1,4 +1,4 @@
-package com.db1.db1start;
+package com.db1.algoritimoscomjava;
 import java.util.Arrays;
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class Application {
 		        quatro_primeiras_letras = quatro_primeiras_letras + palavra.charAt(i);      
 		    }
 		return quatro_primeiras_letras;
-}
+	}
 	
 	public String exibeAPartirda3PrimeiraLetra (String palavra) {
 		palavra = palavra.replaceAll("\\s+","");
@@ -85,7 +85,7 @@ public class Application {
 		        resultado = resultado + palavra.charAt(i);      
 		    }
 		return resultado;
-}
+	}
 	
 	public String exibe4UltimasLetras (String palavra) {
 		palavra = palavra.replaceAll("\\s+","");
@@ -95,7 +95,7 @@ public class Application {
 		        quatro_ultimas_letras = quatro_ultimas_letras + palavra.charAt(indx);      
 		    }
 		return quatro_ultimas_letras;
-}
+	}
 	
 	public String substituiPrimeiroNome(String palavra) {
 		int count=0;
@@ -110,10 +110,11 @@ public class Application {
 		
 		String aluno = "ALUNO/ALUNA" + sobrenome;
 		return aluno;
-}
+	}
+
 	public String[] exibeTextoSeparadamente(String palavra) {
 		return palavra.split(", ");
-}
+	}
 	
 	public int quantidadeVogais(String palavra) {
 		String[] vogais = new String[] {"a","e","i","o","u"};
@@ -129,7 +130,7 @@ public class Application {
 		}
 		
 		return count;
-}
+	}
 	public String inverteString(String palavra) {
 		String resultado = "";
 		int count=0;
@@ -137,7 +138,7 @@ public class Application {
 			resultado= resultado + palavra.charAt(i);
 	    }
 		return resultado;
-}
+	}
 	public double menorValor(double valor1, double valor2) {
 		if (valor1 < valor2) {
 			return valor1;

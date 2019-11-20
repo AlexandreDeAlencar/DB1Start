@@ -1,11 +1,11 @@
-package com.db1.db1start;
+package com.db1.algoritimoscomjava;
 import java.util.Scanner;
 
-public class app {
+public class App {
 	
 	public static String soma( Integer numero1, Integer numero2) {
 		Integer resultado = numero1 + numero2;
-		return "O resultado da soma é " + resultado;
+		return "O resultado da soma ï¿½ " + resultado;
 	}
 	
 	public static String maiuscula( String texto_normal) {
@@ -64,7 +64,7 @@ public class app {
 		Scanner scan_valor3 = new Scanner(System.in);
 		double valor3 = scan_valor3.nextInt();
 		
-		System.out.println("O menor valor é o: " + menorValor(valor1,valor2,valor3));
+		System.out.println("O menor valor ï¿½ o: " + menorValor(valor1,valor2,valor3));
 	}
 
 }
