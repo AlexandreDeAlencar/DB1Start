@@ -7,6 +7,7 @@ public class Aluno extends Pessoa {
 
     public Aluno(String nome, String email) {
         super(nome, email);
+
     }
 
     public Aluno(String nome, String email, double nota) {
@@ -15,6 +16,7 @@ public class Aluno extends Pessoa {
     }
 
     public double getNota() {
+
         return nota;
     }
 

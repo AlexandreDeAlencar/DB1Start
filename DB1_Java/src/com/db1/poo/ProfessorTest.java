@@ -1,10 +1,32 @@
 package com.db1.poo;
 
+import com.db1.contacorrentepoo.CampoNaoPodeSerNull;
 import org.junit.Assert;
 import org.junit.Test;
 
 
-class ProfessorTest {
+public class ProfessorTest {
+
+    @Test
+    public void deveJogarExeceptionComEmailNulo(){
+        String nome ="Alexandre";
+        try {
+           Professor professor = new Professor( nome, null);
+        } catch (com.db1.contacorrentepoo.CampoNaoPodeSerNull naoPodeSerNull){
+            Assert.assertEquals( "Email não pode ser nulo", naoPodeSerNull.getMessage());
+        }
+    }
+
+    @Test
+    public void deveJogarExeceptionComNomeNulo(){
+        String email ="falexandrealencar@hotmail.com";
+        try {
+            Professor professor = new Professor( null, email);
+        } catch (CampoNaoPodeSerNull naoPodeSerNull){
+            Assert.assertEquals( "Nome não pode ser nulo", naoPodeSerNull.getMessage());
+        }
+    }
+
 
     @Test
     public void criarProfessorConstrutor(){
