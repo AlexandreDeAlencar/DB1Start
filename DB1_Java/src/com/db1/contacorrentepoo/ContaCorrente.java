@@ -5,24 +5,25 @@ import java.util.stream.Collectors;
 
 public class ContaCorrente {
     private double saldo;
-    private String nomeTitular;
-    private String cpf;
+    private String numero;
+    private String agencia;
     private Extrato extrato;
+    private Cliente cliente;
 
-    public ContaCorrente(double saldo, String nomeTitular, String cpf) {
-        this.saldo = saldo;
-
-        if (nomeTitular == null){
-            throw new com.db1.contacorrentepoo.CampoNaoPodeSerNull("Nome do titular da conta não pode ser nulo");
+    public ContaCorrente(double saldoInicial, String numero, String agencia, Cliente cliente) {
+        if (numero == null ||numero.isEmpty()){
+            throw new com.db1.contacorrentepoo.CampoNaoPodeSerNull("O número da conta não pode ser nulo");
         }
-        if (cpf == null){
-            throw new CampoNaoPodeSerNull("CPF do titular da conta não pode ser nulo");
+        if (agencia == null||agencia.isEmpty()){
+            throw new CampoNaoPodeSerNull("A agência  da conta não pode conter valor nulo");
         }
 
-        this.nomeTitular = nomeTitular;
-        this.cpf = cpf;
+        this.saldo = saldoInicial;
+        this.numero = numero;
+        this.agencia = agencia;
+        this.cliente= cliente;
         Deposito depositoInical = new Deposito(saldo);
-        ArrayList<Operacao> extratoInicial = new ArrayList<Operacao>(Arrays.asList(depositoInical));
+        ArrayList<Operacao> extratoInicial = new ArrayList<>(Arrays.asList(depositoInical));
         Extrato extrato = new Extrato(extratoInicial);
         this.extrato = extrato ;
     }
@@ -35,20 +36,26 @@ public class ContaCorrente {
         this.saldo = saldo;
     }
 
-    public String getNomeTitular() {
-        return nomeTitular;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setNomeTitular(String nomeTitular) {
-        this.nomeTitular = nomeTitular;
+    public void setNumero(String numero) {
+        if (numero == null ||numero.isEmpty()){
+            throw new com.db1.contacorrentepoo.CampoNaoPodeSerNull("O número da conta não pode ser nulo");
+        }
+        this.numero = numero;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getAgencia() {
+        return agencia;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setAgencia(String agencia) {
+        if (agencia == null||agencia.isEmpty()){
+            throw new CampoNaoPodeSerNull("A agência  da conta não pode conter valor nulo");
+        }
+        this.agencia = agencia;
     }
 
     public Extrato getExtrato() {
@@ -57,6 +64,14 @@ public class ContaCorrente {
 
     public void setExtrato(Extrato extrato) {
         this.extrato = extrato;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void depositar (double valor){
@@ -71,17 +86,22 @@ public class ContaCorrente {
                 this.saldo -= saque.getValorOperacao();
                 this.extrato.addOperacao(saque);
         } else {
-            System.out.println("A conta não possui saldo suficiente para realizar a operação de saque desejada");
+            throw new RuntimeException("A conta não possui saldo suficiente para realizar a operação de saque desejada");
         }
     }
 
-    public void transferir(double valor, String nomeTitularTransferencia, String cpfTitularTransferencia){
-        Transacao transacao = new Transacao(valor, nomeTitularTransferencia, cpfTitularTransferencia );
-        if  (this.saldo>transacao.getValorOperacao()) {
-            this.saldo -= transacao.getValorOperacao();
-            this.extrato.addOperacao(transacao);
-        } else {
-            System.out.println("A conta não possui saldo suficiente para realizar a operação de transferência desejada");
+    public void transferir(double valor, ContaCorrente contaCorrenteTransferencia){
+        Transacao transacaoSaida = new Transacao(-valor, contaCorrenteTransferencia );
+        Transacao transacaoEntrada = new Transacao(valor, this);
+        if  (this.saldo>transacaoSaida.getValorOperacao() && valor >=0) {
+            this.saldo += transacaoSaida.getValorOperacao();
+            this.extrato.addOperacao(transacaoSaida);
+            contaCorrenteTransferencia.setSaldo(contaCorrenteTransferencia.saldo + valor);
+            contaCorrenteTransferencia.extrato.addOperacao(transacaoEntrada);
+        } else if (this.saldo<transacaoSaida.getValorOperacao()) {
+            throw new RuntimeException("A conta não possui saldo suficiente para realizar a operação de saque desejada");
+        } else if (valor < 0) {
+            throw new RuntimeException("A operacação não pode conter valor inferior a R$ 0,00");
         }
     }
 

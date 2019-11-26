@@ -1,34 +1,21 @@
 package com.db1.contacorrentepoo;
 
 public class Transacao extends Operacao {
-    private String nomeTitularTransferencia;
-    private String cpfTitularTransferencia;
+    private ContaCorrente contaCorrenteTransferencia;
 
-    public Transacao(double valorOperacao, String nomeTitularTransferencia, String cpfTitularTransferencia) {
+    public Transacao(double valorOperacao,ContaCorrente contaCorrenteTransferencia) {
         super(valorOperacao);
-        if (nomeTitularTransferencia == null){
-            throw new com.db1.contacorrentepoo.CampoNaoPodeSerNull("Nome do titular da conta de transferência não pode ser nulo");
+        if (contaCorrenteTransferencia == null){
+            throw new com.db1.contacorrentepoo.CampoNaoPodeSerNull("A conta corrente de transferência deve conter um objeto válido");
         }
-        if (cpfTitularTransferencia == null){
-            throw new CampoNaoPodeSerNull("CPF do titular da conta de transferência não pode ser nulo");
-        }
-        this.nomeTitularTransferencia = nomeTitularTransferencia;
-        this.cpfTitularTransferencia = cpfTitularTransferencia;
+        this.contaCorrenteTransferencia=contaCorrenteTransferencia;
     }
 
-    public String getNomeTitularTransferencia() {
-        return nomeTitularTransferencia;
+    public ContaCorrente getContaCorrenteTransferencia() {
+        return contaCorrenteTransferencia;
     }
 
-    public void setNomeTitularTransferencia(String nomeTitularTransferencia) {
-        this.nomeTitularTransferencia = nomeTitularTransferencia;
-    }
-
-    public String getCpfTitularTransferencia() {
-        return cpfTitularTransferencia;
-    }
-
-    public void setCpfTitularTransferencia(String cpfTitularTransferencia) {
-        this.cpfTitularTransferencia = cpfTitularTransferencia;
+    public void setContaCorrenteTransferencia(ContaCorrente contaCorrenteTransferencia) {
+        this.contaCorrenteTransferencia = contaCorrenteTransferencia;
     }
 }

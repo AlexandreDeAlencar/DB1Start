@@ -11,14 +11,17 @@ public class Extrato {
     }
 
     public List<Operacao> getListaDeOperacoes() {
+
         return extrato;
     }
 
     public void setExtrato(List<Operacao> extrato) {
+
         this.extrato = extrato;
     }
 
     public void addOperacao(Operacao operacao){
+
         this.extrato.add(operacao);
     }
 
@@ -26,9 +29,13 @@ public class Extrato {
         double saldoEstrato=0;
         for (int i =0; i< this.extrato.size(); i++){
             String nomeClasse = this.extrato.get(i).getClass().getName();
-            if(nomeClasse == Saque.class.getName() || nomeClasse == Transacao.class.getName()){
+            if(nomeClasse == Deposito.class.getName() || nomeClasse == Transacao.class.getName()){
+                saldoEstrato += this.extrato.get(i).getValorOperacao();
+            } else if (nomeClasse == Saque.class.getName()) {
                 saldoEstrato -= this.extrato.get(i).getValorOperacao();
-            } else  saldoEstrato += this.extrato.get(i).getValorOperacao();
+            }else {
+                throw new RuntimeException("Não foi possível identificar o nome da  classe da oepração:" + nomeClasse);
+            }
         }
         return saldoEstrato;
     }

@@ -22,8 +22,6 @@ public class App {
         alunos.add(aluno1);
         alunos.add(aluno2);
         Aula aula1 = new Aula(materia1, alunos, data);
-
-
         System.out.println(aluno1.toString());
     }
 
