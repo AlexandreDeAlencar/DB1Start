@@ -7,6 +7,7 @@ public class Extrato {
     private List<Operacao> extrato = new ArrayList<>();
 
     public Extrato(List<Operacao> operacao) {
+
         this.extrato = operacao;
     }
 

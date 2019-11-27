@@ -1,4 +1,4 @@
-package com.db1.demo.domain.entity;
+package com.db1.cidades_api.domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,10 @@ public class Estado {
 	
 	@OneToMany(mappedBy = "uf", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Cidade> cidades;
-	
+
+
+	public Estado() {}
+
 	public Estado(String nome) {
 		this.nome = nome;
 		this.cidades = new ArrayList<>();
@@ -36,24 +39,11 @@ public class Estado {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getNome() {
 		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public List<Cidade> getCidades() {
 		return cidades;
 	}
-
-	public void setCidades(List<Cidade> cidades) {
-		this.cidades = cidades;
-	}
-	
 }

@@ -105,6 +105,7 @@ public class ContaCorrenteTest {
         ContaCorrente contaMaiko = new ContaCorrente(saldo2, numero2, agencia, maiko);
         contaAlexandre.transferir(4000, contaMaiko);
         Assert.assertEquals(1000, contaAlexandre.getSaldo(), 0.0);
+        Assert.assertEquals(46300, contaMaiko.getSaldo(), 0.0);
         Assert.assertEquals(-4000, contaAlexandre.getExtrato().getListaDeOperacoes().get(1).getValorOperacao(), 0.0);
         Assert.assertEquals(contaMaiko.getCliente().getNomeTitular(),
                 contaAlexandre.getExtrato().getListTransacoes().get(0).getContaCorrenteTransferencia().getCliente().getNomeTitular());
