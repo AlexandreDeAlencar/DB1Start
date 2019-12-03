@@ -1,42 +1,23 @@
-package com.db1.cidades_api.domain.entity;
+package com.db1.cidades_api.dto;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+import com.db1.cidades_api.domain.entity.Conta;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
+public class ClienteRequestDTO {
 
-@Entity
-@Table(name= "cliente")
-public class Cliente {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "nome", length = 50)
     private String nome;
-
-    @Column(name = "cpf", length = 11)
     private String cpf;
-
-    @Column(name = "telefone", length = 14)
     private String telefone;
-
-    @OneToOne (mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Conta conta;
 
-
-    public Cliente() {
+    public ClienteRequestDTO() {
     }
 
-    public Cliente(String nome, String cpf) {
+    public ClienteRequestDTO(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getNome() {
@@ -55,10 +36,6 @@ public class Cliente {
         return conta;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -74,4 +51,5 @@ public class Cliente {
     public void setConta(Conta conta) {
         this.conta = conta;
     }
+
 }

@@ -1,8 +1,12 @@
 package com.db1.cidades_api.domain.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Table(name = "cidade")
@@ -10,7 +14,7 @@ public class Cidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(name = "nome", length = 60)
 	private String nome;
@@ -31,7 +35,7 @@ public class Cidade {
 		this.agencias = new ArrayList<>();
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -45,5 +49,21 @@ public class Cidade {
 
 	public List<Agencia> getAgencias() {
 		return agencias;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setUf(Estado uf) {
+		this.uf = uf;
+	}
+
+	public void setAgencias(List<Agencia> agencias) {
+		this.agencias = agencias;
 	}
 }

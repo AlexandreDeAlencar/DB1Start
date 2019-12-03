@@ -1,44 +1,26 @@
-package com.db1.cidades_api.domain.entity;
+package com.db1.cidades_api.dto;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+import com.db1.cidades_api.domain.entity.Cidade;
+import com.db1.cidades_api.domain.entity.Conta;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+public class AgenciaRequestDTO {
 
-
-@Entity
-@Table(name= "agencia")
-public class Agencia {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    @Column(name = "numero", length = 5)
     private String numero;
-
-    @ManyToOne
-    @JoinColumn(name = "cidade_id")
     private Cidade cidade;
-
-    @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Conta> contas;
 
-    public Agencia (){
+    public AgenciaRequestDTO(){
     }
 
-    public Agencia( String numero, Cidade cidade) {
+    public AgenciaRequestDTO(String numero, Cidade cidade) {
         this.numero = numero;
         this.cidade = cidade;
         this.contas = new ArrayList<>();
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getNumero() {
@@ -53,10 +35,6 @@ public class Agencia {
         return contas;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setNumero(String numero) {
         this.numero = numero;
     }
@@ -68,4 +46,5 @@ public class Agencia {
     public void setContas(List<Conta> contas) {
         this.contas = contas;
     }
+
 }

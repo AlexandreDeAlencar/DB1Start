@@ -25,15 +25,13 @@ import org.springframework.test.context.junit4.SpringRunner;
         @Test
         public void esperaaAcharEstado() {
             Estado estado = new Estado();
-            estado = estadoService.findByNome("Paraná");
+            estado = estadoService.buscarPorNome("Paraná");
             Assert.assertNotNull(estado);
             System.out.println(estado.getId());
         }
         @Test
         public void deletarEstado() {
-            estadoService.deletar("Paraná");
-            Estado estado = new Estado();
-            estado = estadoService.findByNome("Paraná");
+            estadoService.deletarPorNome("Paraná");
         }
 
 
