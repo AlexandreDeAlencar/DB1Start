@@ -1,8 +1,7 @@
-package com.db1.cidades_api.adaptar;
+package com.db1.cidades_api.adapter;
 
-import com.db1.cidades_api.dto.EstadoRequestDTO;
 import com.db1.cidades_api.domain.entity.Estado;
-import com.db1.cidades_api.dto.EstadoResponseDTO;
+import com.db1.cidades_api.responsedto.EstadoResponseDTO;
 
 public class EstadoAdapter {
 
@@ -12,6 +11,4 @@ public class EstadoAdapter {
         estadoResponseDTO.setCidades(estado.getCidades());
         return estadoResponseDTO;
     }
-
-
 }

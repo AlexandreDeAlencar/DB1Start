@@ -1,23 +1,20 @@
-package com.db1.cidades_api.dto;
+package com.db1.cidades_api.responsedto;
 
 import com.db1.cidades_api.domain.entity.Cidade;
 import com.db1.cidades_api.domain.entity.Conta;
-import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgenciaRequestDTO {
-
+public class AgenciaResponseDTO {
     private String numero;
     private Cidade cidade;
     private List<Conta> contas;
 
-    public AgenciaRequestDTO(){
+    public AgenciaResponseDTO(){
     }
 
-    public AgenciaRequestDTO(String numero, Cidade cidade) {
+    public AgenciaResponseDTO(String numero, Cidade cidade) {
         this.numero = numero;
         this.cidade = cidade;
         this.contas = new ArrayList<>();

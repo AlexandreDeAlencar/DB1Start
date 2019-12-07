@@ -6,7 +6,9 @@ import com.db1.cidades_api.repository.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CidadeService {
@@ -32,9 +34,17 @@ public class CidadeService {
         );
         return cidade;
     }
-    public Cidade atualizar(Long cidadeId, String novoNome) {
+
+    public List<Cidade> buscarTodosPorNome(String nome){
+        List<Cidade> cidade = new ArrayList<>();
+        cidade = cidadeRepository.findAllByNome(nome);
+        return cidade;
+    }
+
+    public Cidade atualizar(Long cidadeId, String novoNome, Estado estado) {
         Cidade cidade = buscarPorId(cidadeId);
         cidade.setNome(novoNome);
+        cidade.setUf(estado);
         return cidadeRepository.save(cidade);
     }
 

@@ -1,9 +1,7 @@
-package com.db1.cidades_api.dto;
+package com.db1.cidades_api.responsedto;
 
 import com.db1.cidades_api.domain.entity.Cidade;
-import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 

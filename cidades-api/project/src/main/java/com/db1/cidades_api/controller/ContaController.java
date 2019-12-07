@@ -1,16 +1,12 @@
 package com.db1.cidades_api.controller;
 
-import com.db1.cidades_api.domain.entity.Agencia;
-import com.db1.cidades_api.domain.entity.Cliente;
 import com.db1.cidades_api.domain.entity.Conta;
-import com.db1.cidades_api.dto.ContaRequestDTO;
-import com.db1.cidades_api.dto.ContaRequestDTO;
+import com.db1.cidades_api.requestdto.ContaRequestDTO;
 import com.db1.cidades_api.services.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("contas")
 @RestController
@@ -48,4 +44,7 @@ public class ContaController {
     public void atualizarConta(@PathVariable long id, @RequestBody ContaRequestDTO contaRequestDTO){
         contaService.atualizar(id , contaRequestDTO.getSaldo(), contaRequestDTO.getAgencia(), contaRequestDTO.getCliente());
     }
+
+
+
 }

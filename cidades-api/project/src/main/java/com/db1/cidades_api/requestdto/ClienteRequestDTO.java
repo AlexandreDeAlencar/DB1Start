@@ -1,16 +1,12 @@
-package com.db1.cidades_api.dto;
+package com.db1.cidades_api.requestdto;
 
 import com.db1.cidades_api.domain.entity.Conta;
-import org.springframework.stereotype.Component;
-
-import javax.persistence.*;
 
 public class ClienteRequestDTO {
 
     private String nome;
     private String cpf;
     private String telefone;
-    private Conta conta;
 
     public ClienteRequestDTO() {
     }
@@ -32,10 +28,6 @@ public class ClienteRequestDTO {
         return telefone;
     }
 
-    public Conta getConta() {
-        return conta;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -46,10 +38,6 @@ public class ClienteRequestDTO {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
     }
 
 }

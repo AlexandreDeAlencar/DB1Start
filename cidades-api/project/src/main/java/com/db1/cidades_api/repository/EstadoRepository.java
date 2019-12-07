@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface EstadoRepository extends JpaRepository<Estado, Long>{
     Optional<Estado> findByNome(String nome);
+    List<Estado> findAllByNome(String nome);
 }
 
 

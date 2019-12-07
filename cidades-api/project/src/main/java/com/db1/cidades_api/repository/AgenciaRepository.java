@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface AgenciaRepository extends JpaRepository<Agencia, Long> {
     Optional<Agencia> findByNumero(String numero);
     List<Agencia> findByCidadeId(Long id);
+    List<Agencia> findaAllByNumero(String Numero);
 }

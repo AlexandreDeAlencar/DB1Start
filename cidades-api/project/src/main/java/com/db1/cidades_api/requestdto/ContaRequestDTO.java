@@ -1,10 +1,7 @@
-package com.db1.cidades_api.dto;
+package com.db1.cidades_api.requestdto;
 
 import com.db1.cidades_api.domain.entity.Agencia;
 import com.db1.cidades_api.domain.entity.Cliente;
-import org.springframework.stereotype.Component;
-
-import javax.persistence.*;
 
 public class ContaRequestDTO {
 

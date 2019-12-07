@@ -1,13 +1,8 @@
-package com.db1.cidades_api.dto;
-
-import com.db1.cidades_api.domain.entity.Cidade;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
+package com.db1.cidades_api.requestdto;
 
 public class EstadoRequestDTO {
 
-        private String nome;
+     private String nome;
 
     public EstadoRequestDTO() {
     }

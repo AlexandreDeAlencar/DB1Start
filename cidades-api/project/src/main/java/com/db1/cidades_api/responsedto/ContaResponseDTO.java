@@ -1,8 +1,7 @@
-package com.db1.cidades_api.dto;
+package com.db1.cidades_api.responsedto;
 
 import com.db1.cidades_api.domain.entity.Agencia;
 import com.db1.cidades_api.domain.entity.Cliente;
-import org.springframework.stereotype.Component;
 
 public class ContaResponseDTO {
 

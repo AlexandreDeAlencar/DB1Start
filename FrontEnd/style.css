@@ -1,0 +1,18 @@
+html{
+	font-family: sans-serif;
+	background-color: red;
+h1{
+	font-weight: bold;
+}
+
+input{
+	box-shadow: all;
+	box-sizing: border-box;
+	box-decoration-break: slice;
+	text-decoration-color: pink;
+	orientation: portrait;
+	background-break: each-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}

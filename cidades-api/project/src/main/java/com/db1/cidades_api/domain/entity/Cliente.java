@@ -30,9 +30,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String cpf) {
+    public Cliente(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
+        this.telefone = telefone;
     }
 
     public Long getId() {
