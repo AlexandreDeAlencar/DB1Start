@@ -8,7 +8,7 @@ public class CidadeAdapter {
     public static CidadeResponseDTO transformarEntidadeEmDto(Cidade cidade) {
         CidadeResponseDTO cidadeResponseDTO = new CidadeResponseDTO();
         cidadeResponseDTO.setNome(cidade.getNome());
-        cidadeResponseDTO.setUf(cidade.getUf());
+        cidadeResponseDTO.setEstado(cidade.getEstado());
         cidadeResponseDTO.setAgencias(cidade.getAgencias());
         return cidadeResponseDTO;
     }

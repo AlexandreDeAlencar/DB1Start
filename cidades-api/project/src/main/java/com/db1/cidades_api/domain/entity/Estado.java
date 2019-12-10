@@ -26,7 +26,7 @@ public class Estado {
 	@Column(name = "nome", nullable = false)
 	 private String nome;
 	
-	@OneToMany(mappedBy = "uf", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "estado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Cidade> cidades;
 
 

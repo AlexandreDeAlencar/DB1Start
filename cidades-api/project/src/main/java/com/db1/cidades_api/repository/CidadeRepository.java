@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface CidadeRepository extends JpaRepository <Cidade, Long> {
     Optional<Cidade> findByNome(String nome);
-    List<Cidade> findByUfId(Long ufId);
+    List<Cidade> findByEstadoId(Long estadoId);
     List<Cidade> findAllByNome(String Nome);
 
 }

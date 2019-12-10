@@ -5,29 +5,29 @@ import com.db1.cidades_api.domain.entity.Estado;
 public class CidadeRequestDTO {
 
     private String nome;
-    private Estado uf;
+    private Estado estado;
 
     public CidadeRequestDTO() {
     }
 
     public CidadeRequestDTO(String nome, Estado uf) {
-        this.uf = uf;
+        this.estado = uf;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Estado getUf() {
-        return uf;
+    public Estado getEstado() {
+        return estado;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setUf(Estado uf) {
-        this.uf = uf;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
 }

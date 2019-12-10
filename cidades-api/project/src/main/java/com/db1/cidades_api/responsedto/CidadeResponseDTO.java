@@ -8,14 +8,14 @@ import java.util.List;
 
 public class CidadeResponseDTO {
     private String nome;
-    private Estado uf;
+    private Estado estado;
     private List<Agencia> agencias;
 
     public CidadeResponseDTO() {
     }
 
-    public CidadeResponseDTO(String nome, Estado uf) {
-        this.uf = uf;
+    public CidadeResponseDTO(String nome, Estado estado) {
+        this.estado = estado;
         this.agencias = new ArrayList<>();
     }
 
@@ -24,8 +24,8 @@ public class CidadeResponseDTO {
         return nome;
     }
 
-    public Estado getUf() {
-        return uf;
+    public Estado getEstado() {
+        return estado;
     }
 
     public List<Agencia> getAgencias() {
@@ -36,8 +36,8 @@ public class CidadeResponseDTO {
         this.nome = nome;
     }
 
-    public void setUf(Estado uf) {
-        this.uf = uf;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public void setAgencias(List<Agencia> agencias) {

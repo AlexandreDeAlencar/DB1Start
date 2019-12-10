@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CidadeService {
@@ -44,7 +43,7 @@ public class CidadeService {
     public Cidade atualizar(Long cidadeId, String novoNome, Estado estado) {
         Cidade cidade = buscarPorId(cidadeId);
         cidade.setNome(novoNome);
-        cidade.setUf(estado);
+        cidade.setEstado(estado);
         return cidadeRepository.save(cidade);
     }
 
@@ -53,7 +52,7 @@ public class CidadeService {
     }
 
     public List<Cidade> buscarTodosPeloIdDoEstado(Long estadoId) {
-        return cidadeRepository.findByUfId(estadoId);
+        return cidadeRepository.findByEstadoId(estadoId);
     }
 
     public List<Cidade> buscarTodos() {

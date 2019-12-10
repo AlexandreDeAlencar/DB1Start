@@ -2,7 +2,6 @@ package com.db1.cidades_api.services;
 
 import com.db1.cidades_api.domain.entity.Agencia;
 import com.db1.cidades_api.domain.entity.Cidade;
-import com.db1.cidades_api.domain.entity.Estado;
 import com.db1.cidades_api.repository.AgenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +42,7 @@ public class AgenciaService {
 
     public List<Agencia> buscarTodosPorNumero(String numero){
         List<Agencia> agencias = new ArrayList<>();
-        agencias = agenciaRepository.findaAllByNumero(numero);
+        agencias = agenciaRepository.findAllByNumero(numero);
         return agencias;
     }
 

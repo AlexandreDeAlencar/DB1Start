@@ -46,7 +46,7 @@ public class CidadeController {
 
     @PostMapping
     public void criarCidade(@RequestBody CidadeRequestDTO cidadeRequestDTO){
-        cidadeService.criar(cidadeRequestDTO.getNome(), cidadeRequestDTO.getUf());
+        cidadeService.criar(cidadeRequestDTO.getNome(), cidadeRequestDTO.getEstado());
     }
 
 
@@ -64,7 +64,7 @@ public class CidadeController {
 
     @PutMapping(path = "{id}")
     public void atualizarCidade(@PathVariable long id, @RequestBody CidadeRequestDTO cidadeRequestDTO){
-        cidadeService.atualizar(id ,  cidadeRequestDTO.getNome(), cidadeRequestDTO.getUf());
+        cidadeService.atualizar(id ,  cidadeRequestDTO.getNome(), cidadeRequestDTO.getEstado());
     }
 }
 

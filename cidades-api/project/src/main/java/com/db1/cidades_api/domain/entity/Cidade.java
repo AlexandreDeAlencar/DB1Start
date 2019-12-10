@@ -1,8 +1,5 @@
 package com.db1.cidades_api.domain.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,7 @@ public class Cidade {
 	
 	@ManyToOne
 	@JoinColumn(name = "estado_id")
-	private Estado uf;
+	private Estado estado;
 
 	@OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Agencia> agencias;
@@ -29,9 +26,9 @@ public class Cidade {
 	public Cidade() {
 	}
 
-	public Cidade( String nome, Estado uf) {
-		this.id = id;
-		this.uf = uf;
+	public Cidade( String nome, Estado estado) {
+		this.nome = nome;
+		this.estado = estado;
 		this.agencias = new ArrayList<>();
 	}
 
@@ -43,8 +40,8 @@ public class Cidade {
 		return nome;
 	}
 
-	public Estado getUf() {
-		return uf;
+	public Estado getEstado() {
+		return estado;
 	}
 
 	public List<Agencia> getAgencias() {
@@ -59,8 +56,8 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-	public void setUf(Estado uf) {
-		this.uf = uf;
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 
 	public void setAgencias(List<Agencia> agencias) {

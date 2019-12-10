@@ -43,10 +43,16 @@ public class EstadoController {
         return listaDeRetorno;
     }
 
-    @PostMapping
+    @PostMapping("/nome")
     public void criarEstado(@RequestBody EstadoRequestDTO estadoRequestDTO){
         estadoService.criar(estadoRequestDTO.getNome());
     }
+    
+    @PostMapping
+    public void criarListaEstado(@RequestBody List<EstadoRequestDTO> estadoRequestDTO){
+      estadoRequestDTO.forEach(estado ->  estadoService.criar(estado.getNome()));
+    }
+    
 
 
     @DeleteMapping
@@ -58,7 +64,11 @@ public class EstadoController {
               estadoService.deletarPorId(estados.get(i).getId());
           }
         } else estadoService.deletarPorNome(estadoRequestDTO.getNome());
+    }
 
+    @DeleteMapping("/deletartodos")
+    public void deletarTodos(){
+        estadoService.deletarTodos();
     }
 
     @PutMapping(path = "{id}")
